@@ -1,0 +1,28 @@
+[package]
+name = "fastgrep"
+version = "0.1.0"
+edition = "2021"
+authors = ["Mohammadreza Mohammadi <mr.mhmdi93@gmail.com>"]
+description = "A high-performance CLI text search tool"
+license = "MIT"
+
+[[bin]]
+name = "fastgrep"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.4", features = ["derive"] }
+regex = "1.10"
+rayon = "1.8"
+anyhow = "1.0"
+walkdir = "2.4"
+colored = "2.0"
+memmap2 = "0.9"
+ignore = "0.4"
+atty = "0.2"
+
+[profile.release]
+codegen-units = 1
+lto = true
+panic = "abort"
+opt-level = 3
